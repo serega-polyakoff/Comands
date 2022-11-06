@@ -1,0 +1,24 @@
+sudo apt install python3-virtualenv
+
+virtualenv venv -p python3
+source venv/bin/activate
+pip install django
+pip freeze > requirements.txt
+django-admin startproject main .
+django-admin startapp authentication
+django-admin startapp shop
+
+setings.py
+
+TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
